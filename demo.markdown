@@ -8,7 +8,7 @@ title: This will be used as the title-tag of the page head
 <link rel="stylesheet" type="text/css" href="stylesheets/obstyles.css">
 <title>Obrechtkerk Amsterdam</title>
 
-# This is a H1
+# This is a H1 with logo
 
 [the clickable text](http://xlson.com/)
 
