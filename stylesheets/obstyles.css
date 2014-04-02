@@ -1,0 +1,378 @@
+html, body {height:100%;
+padding: 0;
+margin: 0;
+}
+
+body {   
+    background:#FFFFFF;
+	//background: #ccc;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 95%;
+    margin:0;padding:0;
+}
+
+/* standaard links */
+
+
+.rood, #main a, #main a:visited, #main a:link, #sticky a, #sticky a:visited, #sticky a:link, #rightcontent a:visited, #rightcontent a:link {
+color: #0099FF;
+text-decoration: none;
+font-weight: bold;
+}
+
+#maindetail a, #maindetail a:visited, #maindetail a:link {
+color: #0099FF;
+text-decoration: none;
+font-weight: bold;
+}
+
+.rood:hover, #main a:hover, #sticky a:hover, #rightcontent a:hover {
+color: #0099FF;
+text-decoration: underline;
+font-weight: bold;
+}
+
+.rood:hover, #maindetail a:hover {
+color: #0099FF;
+text-decoration: underline;
+font-weight: bold;
+}
+
+#footer a, #footer a:visited {
+color: #0068b4;
+}
+
+#footer a:hover {
+color: #fff;
+background: #0068b4;
+}
+
+#rightcontent {
+font-size: 90%;
+}
+
+/*=== Float Containment and Bug Fixes (Do Not Alter These!) ===*/
+body:before {/*Opera min-height 100% Fix (Maleika)*/
+    content:"";
+    height:100%;
+    float:left;
+    width:0;
+    margin-top:-32767px;/*eliminate need for inner non clearing element (Erik.J)*/
+}
+#wrapper:after,  /* #wrapper:after for IE8 min-height:100% Fix*/
+#inner:after { /* #inner:after for Float Containment*/
+    clear:both;
+    content:"";
+    display:block;
+    height:1%;/*fix IE8 min-height:100% bug (Erik.J)*/
+    font-size:0;
+}
+
+#inner img {
+margin-right: 5px;
+border: 0 !important;
+}
+
+#inner img.leftspace {
+margin-right: 0px;
+margin-left: 5px;
+border: 0 !important;
+}
+
+/*===  Begin Layout Structure ===*/
+#wrapper {
+padding: 0;
+margin: 0;
+    max-width:1000px;
+    min-width:700px;
+    min-height:100%;/*height is determined from parent's height (html & body)*/ 
+    margin:0 auto;  
+    background:#FFF;/*this needs to be the same as #right bg color*/
+    xborder-left:1px solid #000;
+    xborder-right:1px solid #000;
+	border-left:1px solid #fff;
+    border-right:1px solid #fff;
+    position:relative; /*establish containing block for AP #faux div*/
+}
+#header{
+padding: 0;
+margin: 0;
+    height:175px;
+    RRbackground:#fff url('../img/header.jpg');
+	border-bottom:3px solid #fff;
+    text-align:center;
+    font-weight:bold;
+    position:relative;/*establish stacking order for z-index*/
+    z-index:2;/*layer it above the #faux column*/
+}
+
+
+
+/* MENU */
+/*=== Begin Nav Styles ===*/
+
+* html #drop-down-menu li{display:inline;}/* inline-block trigger for IE6 */
+*+html #drop-down-menu li{display:inline;}/* inline-block trigger for IE7 */
+
+
+#navcont {
+width:100%;
+background: #0068b4;
+display: block;
+margin: 0;
+padding:0;
+z-index:3;
+}
+
+
+#drop-down-menu{margin-left:0px; }
+
+#navcont ul{ 
+	font-weight:bold;color:#ffffff;
+	margin:0;
+	padding:0;
+	list-style:none}
+#navcont ul li{
+	display:block;
+	position:relative;
+	float:left}
+#navcont li ul{display:none}
+#navcont ul li a{
+	display:block;
+	border-right: 3px solid white;
+	text-decoration:none;
+	color:#dff2fd;
+	padding: 5px 15px 5px 15px;
+	background:#0068b4; 
+}
+#navcont ul li a:hover{background:#dff2fd;color:#0068b4}
+#navcont li:hover ul{ 
+	display:block; 
+	position:absolute; }
+#navcont li:hover li{ 
+	font-size:90%;
+	clear:left; 
+	width:220px; }
+#navcont li:hover a{ background:#0068b4;color:#dff2fd; }
+#navcont li:hover li a:hover{background:#dff2fd;color:#0068b4; }
+.clear_all{clear:both;height:0 !important;}
+
+#navcont li a.sel {
+color: #0068b4;
+background: #dff2fd;
+}
+
+/* CONTENT */
+
+
+
+/*=== Begin Columns ===*/
+#inner {
+    width:100%;/*haslayout*/
+    padding-bottom:61px; /*preserve footer space (plus 10px for text spacing)*/
+    background:#FFF;/*set same as wrapper BG or none at all*/
+}
+
+#right{
+    float:right;
+	width:285px;
+	width:220px;
+    padding-left:1px;/*recover border from #faux-rt*/          
+    position:relative;
+    z-index:2;/*layer it above the #faux-rt column*/
+	//color: #fff;
+
+}
+#rightdetail{
+    float:right;
+	width:0px;
+    padding-left:1px;/*recover border from #faux-rt*/          
+    position:relative;
+    z-index:2;/*layer it above the #faux-rt column*/
+}
+#rightcontent {
+	margin: 0px;
+	padding: 0px;
+	padding-top: 30px;
+	padding-left: 15px;
+
+}
+#main{
+    overflow:hidden;/*stop content from sliding under floated side columns(IE7 haslayout also)*/
+    background:#FFF;/*same as #wrapper bg color (or remove it completely)*/
+	padding-top: 30px;
+}
+#maindetail {
+    overflow:hidden;/*stop content from sliding under floated side columns(IE7 haslayout also)*/
+    background:#FFF;/*same as #wrapper bg color (or remove it completely)*/
+	padding-top: 30px;
+}
+#main1 {
+width: 400px;
+float: left;
+}
+#main2 {
+width: 355px;
+float: left;
+margin-left: 20px;
+}
+
+
+
+
+
+
+/*=== main content ===*/
+
+
+
+
+.smallfont {
+font-size: 80%;
+}
+
+
+
+.clear {
+clear: both;
+}
+
+
+
+/* FAQs */
+
+.divVisible {
+display:block;
+margin: 0px;
+xborder-left: 2px solid #e5007d;
+padding-left: 18px;
+margin-bottom: 20px;
+}
+.divHidden {display:none;}
+
+
+
+
+#rightcontent p, #main p {
+padding: 0;
+margin: 0;
+}
+
+#maindetail p {
+padding: 0;
+margin: 8px 0 0 0 ;
+}
+
+h1 {
+font-family: 'Goudy Bookletter 1911', serif;
+margin: 0;
+padding: 0;
+padding-bottom: 15px;
+}
+
+h2 {
+font-family: 'Goudy Bookletter 1911', serif;
+margin: 0;
+padding: 0;
+}
+
+h3 {
+font-family: 'Goudy Bookletter 1911', serif;
+margin: 0;
+padding: 0;
+}
+
+  
+  
+
+
+
+TD,  .normal, LI	{ XXfont-size:80%; }
+TD { vertical-align: top;}
+TD UL LI	{ XXfont-size:100%; }
+.kop	{  font-size: 120%; color: #000; Xbackground: #ccc; font-weight: bold;  border-top: 2px solid #0099FF;}
+.subkop	{ font-size: 100%; 	color: #000; Xbackground: #ccc; font-weight: bold; border-top: 2px solid #0099FF;}
+
+.banner	{  font-size: 130%; color: #843339; 	color: #0099FF;FONT-WEIGHT: bold; background: #FFEA97; text-align: center;}
+.maand {  FONT-WEIGHT: bold;  color: gray; text-align: right;}
+.blok	{  font-size: 110%; color: #843339; 	color: #0099FF;FONT-WEIGHT: bold; background: #FFEA97; text-align: center;}
+
+
+
+
+
+
+
+.koordatum {
+	XXfont-size: 80%;
+	font-weight: bold;
+	xline-height: 0;
+margin:0;
+padding:0;
+	margin-top: 5px;
+}
+
+.koortitel {
+	XXfont-size: 90%;
+	XXcolor: #666;
+display: inline;
+	font-weight: bold;
+XXborder: 2px solid #0099FF;
+background: #D1D1D1;
+margin:0 !important;
+padding:0;
+}
+
+.koorinter {
+	XXfont-size: 90%;
+	color: #000;
+	font-weight: bold;
+	margin-top: 30 px;
+}
+
+.koortxt {
+	XXfont-size:80%;
+	text-indent: 50px;
+	margin: 0 !important;
+	padding: 0;
+}
+
+.noresize
+{ font-size: 100%; }
+
+#sticky {
+  background-color: #fff;
+  color: #000;
+  font-size: 2em;
+  padding:  0.5ex 0 0.5ex 0;
+  width: 1000px;
+  background: #fff url('../img/headerfoto500.jpg') no-repeat top right ; 
+  border-bottom: 2px solid #0099FF;
+  }
+#sticky.stick {
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  }
+#sticky p  {
+  font-family: 'Goudy Bookletter 1911', serif;
+color: #0099FF;
+  }
+ .vet {
+ font-weight: bold;
+ }
+  .normaal {
+ font-size: 65%;
+
+ }
+ .groot {
+ margin-top: 40px;
+ font-size: 200%;
+   line-height: 0;
+ }
+ 
+ .boxunder {
+ border-bottom: 2px solid #0099FF;
+ margin-bottom: 20px;
+ padding-bottom: 10px;
+ }
